@@ -2,6 +2,7 @@
 
 @section('title','Dashboard | FRSCVD')
 @section('subtitle',"Edit your profile here")
+<style scoped> .pagination { justify-content: center!important; } </style>
 @section('content2')
 <div class="content container content-wrapper2">
     <div class="col-custom2 boxShadow-top form-group">
@@ -193,11 +194,11 @@
        
 
         
-        $formtbl = DB::table('formtbl')->get();
+    
        
     $count=1;
       
-            foreach ($formtbl as $row) {
+            foreach ($formtbl as $keys=> $row) {
                 $patientname = $row->patientname;
                 $submitdate = $row->submitdate;
                 $patientgender = $row->patientgender;
@@ -219,7 +220,7 @@
                                     <small class="text-muted"><?php if($patientgender == 1) echo 'Male'; else echo 'Female'; ?></small>
                                 </div>
                                 <div class="col">
-                                    <label><?php echo $count; ?>. <?php echo $patientname; ?></label>
+                                    <label>{{$formtbl->firstItem()+$keys}}. <?php echo $patientname; ?></label>
                                 </div>
                                 <div class="col">
                                     <small class="text-muted"><?php echo $patientrace; ?></small>
@@ -229,6 +230,7 @@
                             </div>
                             <div class="col-md-2 col-3">
                                 <button type="button"  onclick="location.href='chdriskform.php?nric=<?php echo $patientnric; ?>'" class="btn-info btn-block but-color-none">View</button>
+                                <button type="button"  onclick="location.href='chdriskform.php?nric=<?php echo $patientnric; ?>'" class="btn-warning btn-block but-color-none">Edit</button>
                             </div>
                         </div>
                     </div>
@@ -239,21 +241,15 @@
             }
         
     ?>
+
+   
     <div class="row">
         <div class="col-md-1 col-2">
-            <button type="button" onclick="location.href='dashboard.php'" class="btn-outline-info but-custom2"><i class="fa fa-long-arrow-left fa-lg"></i></button>
+            <button type="button" onclick="location.href='{{URL::to('dashboard')}}'" class="btn-outline-info but-custom2"><i class="fa fa-long-arrow-left fa-lg"></i></button>
         </div>
         <div class="col-md-10 col-9" style="text-align: center;">
-            <?php
-                ?>
-                    <a href="list-patient.php?start=" class="previous">&laquo; Previous</a>
-                <?php 
-            ?>
-            <?php
-                ?>
-                    <a href="list-patient.php?start=" class="next">Next &raquo;</a>
-                <?php 
-            ?>
+            {{$formtbl->links()}}
+    
         </div>
     </div>
 </div>

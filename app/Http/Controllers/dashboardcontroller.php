@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\users;
+use Illuminate\Support\Facades\DB;
+
 class dashboardcontroller extends Controller
 {
     public function index()
@@ -37,6 +39,7 @@ class dashboardcontroller extends Controller
     }
     public function listpatient()
     {
-        return view('listpatient');
+        $formtbl = DB::table('formtbl')->paginate(5);
+        return view('listpatient',['formtbl'=>$formtbl]);
     }
 }

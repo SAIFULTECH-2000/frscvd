@@ -13,6 +13,11 @@
             <button type="button" onclick="location.href='{{URL::to('/profile')}}'" class="btn-outline-info btn-block but-color-navy-blue">Edit Your Profile<i class="fa fa-user-circle fa-lg" aria-hidden="true"></i></button>
         </div>
     </div>
+     <div class="row">
+        <div class="col-12 mb-3">
+            <button type="button" onclick="location.href='{{URL::to('/change')}}'" class="btn-outline-info btn-block but-color-navy-blue">Change Password<i class="fa fa-user-circle fa-lg" aria-hidden="true"></i></button>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12 mb-3">
             <button type="button" onclick="location.href='{{URL::to('/chdriskform')}}'" class="btn-outline-info btn-block but-color-navy-blue">Patient Registration<i class="fa fa-wpforms fa-lg" aria-hidden="true"></i></button>
