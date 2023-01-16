@@ -4,7 +4,8 @@
 @section('content')
 <div class="col-custom1 boxShadow form-group">
     <div class="txt-title"><p>Find Your Account</p></div>
-    <form name="email-form" id="email-form">
+    <form name="email-form" id="email-form" method="post" action="{{URL::to('checkemail')}}">
+        @csrf
         <input type="text" value="" class="form-control" name="useremail" id="useremail" title="Please enter your email address" placeholder="Email address" required>
         <hr class="mb-4">
         <div class="row">

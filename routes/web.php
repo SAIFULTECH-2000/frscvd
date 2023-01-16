@@ -24,3 +24,8 @@ Route::get('profile', [dashboardcontroller::class,'profile']);
 Route::post('changeprofile', [dashboardcontroller::class,'changeprofile']);
 Route::get('chdriskform',[dashboardcontroller::class,'chdriskform']);
 Route::get('/listpatient',[dashboardcontroller::class,'listpatient']);
+Route::get('/change',[dashboardcontroller::class,'change']);
+Route::post('/changepassword',[dashboardcontroller::class,'changepassword']);
+Route::post('/patientregister',[dashboardcontroller::class,'patientregister']);
+Route::post('/checkemail',[authcontroller::class,'checkemail']);
+Route::get('/change-password',[authcontroller::class,'change_password']);

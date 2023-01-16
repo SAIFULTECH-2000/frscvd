@@ -189,7 +189,8 @@
     }
 </style>
 
-<form id="chdr-form" name="chdr-form" autocomplete="off">
+<form id="chdr-form" name="chdr-form" autocomplete="off" method="post" action="{{URL::to('patientregister')}}">
+    @csrf
         <div class="col-custom2 boxShadow-top form-group">
             <div class="row">
                 <div class="col-md-4 mb-3">
@@ -500,7 +501,26 @@
         </div>
    
 </form>
-
+<script>
+     var age = 0;		
+		   var nic = document.getElementById('patientnric1');
+		   nic.addEventListener('change', function(e) {
+   var dob = nic.value;
+    var nricyear = dob.substr(0, 2);  // 85
+   
+     var dt = new Date();
+    //var year = document.getElementById("patientyearoffirstseen");
+    var year = dt.getFullYear();
+ if (nricyear > 19) {    
+   
+var        nricage = parseInt(dt.getYear()) - nricyear;
+    }
+    else {
+  
+      var  nricage = 1900 + parseInt(dt.getYear()) - 2000 - parseInt(nricyear);
+    }
+    document.getElementById("patientage").value = nricage; 
+</script>
 
 @endsection
 
